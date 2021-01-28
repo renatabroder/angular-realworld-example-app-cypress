@@ -26,4 +26,12 @@ describe('Post', () => {
         cy.contains('Economia')
     })
 
+    it('Deletar post', () => {       
+        cy.contains('renata').click()
+        cy.location('pathname').should('contains', '/profile')
+        cy.get('.article-preview').get('h1').first().click()
+        cy.contains('Delete Article').click()
+        cy.contains('renata').should('have.attr', 'class', 'nav-link')
+        cy.contains('Home').should('have.attr', 'class', 'nav-link active')
+    })
 })

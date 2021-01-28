@@ -8,4 +8,11 @@ describe('Seguir', () =>{
         cy.contains('Follow').click()
     })
 
+    it('Deixar de seguir usuário', () => {
+        cy.login(user+'@email.com', password)
+        cy.wait(10000)
+        cy.visit('/profile/renata')
+        cy.contains('Follow').click()
+        cy.contains('Unfollow').click()
+    })
 })
